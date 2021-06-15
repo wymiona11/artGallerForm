@@ -1,0 +1,70 @@
+<div class="card mx-auto p-1" style="width: 30rem;">
+  <img [src]="imgSrc" class="card-img-top mx-auto mb-3" style="max-width: 15rem" (click)="file.click()">
+  <div class="display-5 mb-3">{{imgTitle}}</div>
+  <div class="progress mb-3" *ngIf="(percentage | async) as percentage">
+    <div class="progress-bar" role="progressbar" [style.width.%]="percentage" [aria-valuenow]="percentage" aria-valuemin="0" aria-valuemax="100">{{percentage}}</div>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="imgForm" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label for="imgUrl" class="form-label">File</label>
+        <input type="file" class="form-control" id="imgUrl" formControlName="imgUrl" #file (change)="uploadImage($event)">
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" formControlName="title">
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select class="form-select" aria-label="Default select example" id="category" formControlName="category">
+          <option value="abstraction">Abstraction</option>
+          <option value="portrait">Portrait</option>
+          <option value="landscape">Landscape</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <select class="form-select" aria-label="Default select example" id="author" formControlName="author">
+          <option value="santa">Santa</option>
+          <option value="AW">AW</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="dimensions" class="form-label">Dimensions</label>
+        <input type="text" class="form-control" id="dimensions" formControlName="dimensions">
+      </div>
+      <div class="mb-3">
+        <label for="mainColor" class="form-label">Main Color</label>
+        <select class="form-select" aria-label="Default select example" id="mainColor" formControlName="mainColor">
+          <option value="blue">Blue</option>
+          <option value="red">Red</option>
+          <option value="yellow">Yellowe</option>
+          <option value="green">Green</option>
+          <option value="orange">Orange</option>
+          <option value="grey">Grey</option>
+          <option value="white">White</option>
+          <option value="black">Black</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="tehniques" class="form-label">Tehniques</label>
+        <select class="form-select" aria-label="Default select example" id="tehniques" formControlName="tehniques">
+          <option value="oil">Oil</option>
+          <option value="acrylic">Acrylic</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="supportOrSurface" class="form-label">Suppor Or Surface</label>
+        <select class="form-select" aria-label="Default select example" id="supportOrSurface" formControlName="supportOrSurface">
+          <option value="canvas">Canvas</option>
+          <option value="wood">Wood</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="year" class="form-label">Year</label>
+        <input type="text" class="form-control" id="year" formControlName="year">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="imgForm.invalid">Submit</button>
+    </form>
+  </div>
+</div>

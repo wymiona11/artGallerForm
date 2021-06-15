@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "storefile-ddfb7": {
+      "hosting": {
+        "addPaintings": [
+          "storefile-ddfb7"
+        ]
+      }
+    }
+  }
+}
